@@ -112,6 +112,22 @@ function mkpw() {
     done
 }
 
+# run Python in the virtual environment
+python3() {
+    # Check if the virtual environment is already active
+    if [ -z "$VIRTUAL_ENV" ] || [ "$VIRTUAL_ENV" != "$HOME/.venv" ]; then
+        # Activate the virtual environment if not already active
+        if [ -f "$HOME/.venv/bin/activate" ]; then
+            source "$HOME/.venv/bin/activate"
+        else
+            echo "Error: Virtual environment not found at $HOME/.venv"
+            return 1
+        fi
+    fi
+    # Now run the original python3 command
+    command python3 "$@"
+}
+
 # enable parallel
 . `which env_parallel.bash`
 
