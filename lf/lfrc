@@ -12,10 +12,10 @@ set icons		# Enable icons. Requires nerd fonts and LF_ICONS variable.
 # cmds/functions
 cmd open ${{
     case $(file --mime-type "$f" -bL) in
-        text/*) sensible-editor "${f}" ;;
+        text/*) nvim "${f}" ;;
         application/pdf) zathura "${f}" ;;
 				audio/*) xdg-open "${f}" ;;
-				image/*) sxiv -q "${f}" >/dev/null 2>&1 ;;
+				image/*) xdg-open "${f}" >/dev/null 2>&1 ;;
         video/*) xdg-open "${f}" ;;
         *) xdg-open "${f}" ;;
     esac
