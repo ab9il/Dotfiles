@@ -91,7 +91,7 @@ function rgf() {
 	file="$(
 		FZF_DEFAULT_COMMAND="$RG_PREFIX '$1'" \
 			fzf --sort \
-                --preview="[[ ! -z {} ]] && rga --pretty --context 3 {q} {}" \
+                --preview="[[ ! -z {} ]] && rga --rga-accurate --pretty --context 3 {q} {}" \
 				--phony -q "$1" \
 				--bind "change:reload:$RG_PREFIX {q}" \
 				--preview-window="60%:wrap"
@@ -103,6 +103,15 @@ function rgf() {
 # search with ripgrep-all
 function rgg() {
 [[ -z "$1" ]] || rga --pretty --context 3 "$1"
+}
+
+# Edit a manuscript
+function vibk () {
+    local files
+    files=$(fd . ~/Documents/Notes/Books | fzf -m --preview-window="60%:wrap")
+    if [ -n "$files" ]; then
+        $EDITOR $files
+    fi
 }
 
 # generate some passwords
