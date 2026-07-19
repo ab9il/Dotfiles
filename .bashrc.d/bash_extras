@@ -1,0 +1,29 @@
+###############################################################################
+# my extra aliases
+###############################################################################
+
+# open encrypted volume
+alias vault='(cd /var/home/"$LOGNAME"/.local/bin/; sudo ./veracrypt /run/media/"$LOGNAME"/MEDIA_1/MONKEYCHATTER)'
+
+# push notes to git
+alias pushnotes='(cd /run/media/"$LOGNAME"/MEDIA_1/000-Works-In-Progress/010-Github/; ./pushnotes);'
+
+# pull notes from git
+alias pullnotes='(cd /run/media/"$LOGNAME"/MEDIA_1/000-Works-In-Progress/010-Github/; ./pullnotes);'
+
+# group push to git
+alias group-push='(cd /run/media/"$LOGNAME"/MEDIA_1/000-Works-In-Progress/010-Github/; ./group-push.sh);'
+
+###############################################################################
+# my extra functions
+###############################################################################
+
+# Edit a manuscript
+function vibk () {
+    local files
+    files=$(fd . ~/Documents/Notes/Books | fzf -m --preview-window="60%:wrap")
+    if [ -n "$files" ]; then
+        $EDITOR $files
+    fi
+}
+

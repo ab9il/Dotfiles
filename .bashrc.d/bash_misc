@@ -105,15 +105,6 @@ function rgg() {
 [[ -z "$1" ]] || rga --pretty --context 3 "$1"
 }
 
-# Edit a manuscript
-function vibk () {
-    local files
-    files=$(fd . ~/Documents/Notes/Books | fzf -m --preview-window="60%:wrap")
-    if [ -n "$files" ]; then
-        $EDITOR $files
-    fi
-}
-
 # generate some passwords
 function mkpw() {
     for k in {1..5}; do
