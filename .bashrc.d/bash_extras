@@ -27,3 +27,48 @@ function vibk () {
     fi
 }
 
+# Convert Markdown files to other documents
+function mkodt () {
+    infile=$1
+    filename_only="${1##*/}"
+    basename_only="${filename_only%.*}"
+    outfile="$HOME"/"$basename_only.odt"
+    template="$HOME/.local/share/pandoc/reference-6x9-document.odt"
+
+    if [ -n "$infile" ]; then
+        pandoc -s $1 --output "$outfile" --reference-doc="$template"
+    fi
+}
+
+function mkpdf () {
+    infile=$1
+    filename_only="${1##*/}"
+    basename_only="${filename_only%.*}"
+    outfile="$HOME"/"$basename_only.pdf"
+
+    if [ -n "$infile" ]; then
+        pandoc -s $1 --output "$outfile"
+    fi
+}
+
+function mkepub () {
+    infile=$1
+    filename_only="${1##*/}"
+    basename_only="${filename_only%.*}"
+    outfile="$HOME"/"$basename_only.epub"
+
+    if [ -n "$infile" ]; then
+        pandoc -s $1 --output "$outfile"
+    fi
+}
+
+function mkhtm () {
+    infile=$1
+    filename_only="${1##*/}"
+    basename_only="${filename_only%.*}"
+    outfile="$HOME"/"$basename_only.html"
+
+    if [ -n "$infile" ]; then
+        pandoc $1 --output "$outfile"
+    fi
+}
