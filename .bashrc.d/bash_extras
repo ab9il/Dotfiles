@@ -3,7 +3,7 @@
 ###############################################################################
 
 # open encrypted volume
-alias vault='(cd /var/home/"$LOGNAME"/.local/bin/; sudo ./veracrypt /run/media/"$LOGNAME"/MEDIA_1/MONKEYCHATTER)'
+alias vault='(cd /var/home/"$LOGNAME"/.local/bin/; sudo ./veracrypt /run/media/"$LOGNAME"/MEDIA_1/ENCVOL01)'
 
 # push notes to git
 alias pushnotes='(cd /run/media/"$LOGNAME"/MEDIA_1/000-Works-In-Progress/010-Github/; ./pushnotes);'
