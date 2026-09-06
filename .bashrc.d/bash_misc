@@ -112,6 +112,24 @@ function mkpw() {
     done
 }
 
+# Set default text editor
+if [ -f /usr/sbin/nvim ]; then
+    export EDITOR=nvim
+    export VISUAL=nvim
+elif [ -f /usr/bin/nvim ]; then
+    export EDITOR=nvim
+    export VISUAL=nvim
+elif [ -f /usr/local/bin/nvim ]; then
+    export EDITOR=nvim
+    export VISUAL=nvim
+elif [ -f /var/home/linuxbrew/.linuxbrew/bin/nvim ]; then
+    export EDITOR=nvim
+    export VISUAL=nvim
+else
+    export EDITOR=vim
+    export VISUAL=vim
+fi
+
 # run Python in the virtual environment
 python3() {
     # Check if the virtual environment is already active

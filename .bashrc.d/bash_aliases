@@ -78,6 +78,9 @@ alias usb-creator='sudo /usr/local/bin/ventoy/Ventoy2Disk.sh'
 # sshuttle
 alias sshu='/usr/local/bin/sshuttle-controller'
 
+# check public IP location
+alias ckip='curl -s https://ipinfo.io | jq ".loc, .city, .country"'
+
 # data about the distro
 alias readme='w3m "/usr/local/share/html/readme.html"'
 alias homepage='w3m "/usr/local/share/html/homepage.html"'
